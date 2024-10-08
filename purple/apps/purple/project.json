@@ -1,0 +1,26 @@
+{
+  "name": "purple",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/purple/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "purple:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "purple:build:development"
+        },
+        "production": {
+          "buildTarget": "purple:build:production"
+        }
+      }
+    }
+  }
+}
